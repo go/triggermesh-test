@@ -1,0 +1,15 @@
+service: triggermesh-test
+description: "Sample service"
+
+provider:
+  name: triggermesh
+  environment:
+    FOO: BAR
+
+functions:
+  python:
+    source: python/handler.py
+    description: "python Lambda compatible"
+    runtime: https://raw.githubusercontent.com/triggermesh/knative-lambda-runtime/master/python-3.7/runtime.yaml
+    buildargs:
+      - HANDLER=handler.handler
